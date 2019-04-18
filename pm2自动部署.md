@@ -44,8 +44,8 @@ AuthorizedKeysFile .ssh/authorized_keys    # 我的服务器没这行，不添�
     "deploy": {
       "production": {
         "user": "root",
-        "host": ["144.34.159.83"],
-        "port": "28389",
+        "host": ["xxx.xx.xxx.xx"],
+        "port": "xxxxx",
         "ref": "origin/master",
         "repo": "git@git.chasing-innovation.com:3000:lichunshan/m_chasing.git",
         "path": "/WWW/production",
@@ -55,9 +55,9 @@ AuthorizedKeysFile .ssh/authorized_keys    # 我的服务器没这行，不添�
         //ssh用户
         "user": "root",
         //服务器ip
-        "host": ["67.230.191.105"],
+        "host": ["xx.xxx.xxx.xx"],
         //ssh端口
-        "port": "28391",
+        "port": "xxxxx",
         //git远程分支
         "ref": "origin/master",
         //git仓库
