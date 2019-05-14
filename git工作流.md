@@ -12,6 +12,8 @@ git checkout -- "filename" 清理工作区
 
 git log  查看提交记录
 
+git reflog 查看所有分支的所有操作记录
+
 git reset --hard "commitID"  回滚到指定提交
 
 git rm "filename"  清空本地文件（暂存区和仓库还没有清空）
