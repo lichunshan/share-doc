@@ -12,6 +12,8 @@ git tag -d name    删除标签
 
 git push origin name 将标签发布到远程
 
+git push origin :refs/tags/name  删除远程标签
+
 ***
 
 **通过标签回滚**
