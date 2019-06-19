@@ -122,5 +122,37 @@ pm2 deploy test revert 1
 
 远程执行服务器命令
 pm2 deploy test exec "pm2 reload all"
+
 ```
 
+### 1.3.5. 常见问题
+一、
+当你觉得万事俱备的时候，你开始执行pm2 deploy test setup 结果，悲剧发生了。报错：
+
+```
+Host key verification failed.  
+fatal: Could not read from remote repository.  
+```
+解决方案：
+
+1. 删除~/.ssh/known_hosts 文件中包含"gitlab.xxx.com"这一行的记录
+
+2. 删除~/.ssh/known_hosts整个文件
+
+3、修改open ssh配置文件，降低安全级别。SSH对主机的public_key的检查等级是根据StrictHostKeyChecking变量来配置的。可以通过降低安全级别的方式，来减少这一类提示。
+
+执行 `vim /etc/ssh/ssh_config`
+
+找到StrictHostKeyChecking删除注释并将ask调整为no（参考资料[https://tinyhema.iteye.com/blog/2116686](https://tinyhema.iteye.com/blog/2116686)）
+
+二、borwserlist报错
+
+在nuxt中应用browserlist目前存在一个bug（[https://github.com/nuxt/nuxt.js/issues/5952](https://github.com/nuxt/nuxt.js/issues/5952)），项目在编译的过程中会报错`'BrowserslistError: Unknown browser query android all'`。临时解决办法是在`package.json`中加入
+```
+"resolutions": {
+    "browserslist": "4.6.2",
+    "caniuse-lite": "1.0.30000974"
+  }
+```
+
+安装项目依赖的时候推荐用yarn，网络不佳也不用担心安装失败。
